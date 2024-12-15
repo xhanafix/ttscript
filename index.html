@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Script Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <div class="slider round"></div>
+        </label>
+        <em>Dark Mode</em>
+    </div>
+
+    <div class="container">
+        <h1>TikTok Script Generator</h1>
+        
+        <div id="apiKeySection" class="input-group">
+            <label for="apiKey">OpenRouter API Key</label>
+            <div class="api-input-group">
+                <input type="password" id="apiKey" placeholder="Enter your OpenRouter API key">
+                <button id="saveApiKey">Save Key</button>
+            </div>
+            <small>Your API key is stored locally in your browser.</small>
+        </div>
+        
+        <div class="input-group">
+            <label for="description">Video Description</label>
+            <textarea id="description" rows="3" placeholder="Enter a brief description of your video concept"></textarea>
+        </div>
+
+        <div class="input-group">
+            <label for="audience">Target Audience</label>
+            <input type="text" id="audience" placeholder="e.g., Gen Z, Millennials, Tech enthusiasts">
+        </div>
+
+        <div class="input-group">
+            <label for="language">Language</label>
+            <select id="language">
+                <option value="english">English</option>
+                <option value="malay">Bahasa Malaysia</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="tone">Tone</label>
+            <select id="tone">
+                <option value="casual">Casual</option>
+                <option value="humorous">Humorous</option>
+                <option value="educational">Educational</option>
+                <option value="dramatic">Dramatic</option>
+                <option value="inspirational">Inspirational</option>
+            </select>
+        </div>
+
+        <button id="generateBtn" onclick="generateScript()">Generate Script</button>
+        
+        <div id="progressContainer" class="progress-container" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">Generating your script... 🎬</div>
+        </div>
+        
+        <div id="output"></div>
+
+        <footer class="footer">
+            <p>Made with <span class="heart">❤️</span> by <a href="https://github.com/xhanafix" target="_blank">xhanafix</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
