@@ -34,7 +34,7 @@ A web-based tool that generates optimized TikTok scripts using AI. Built with HT
 
 ## Live Demo
 
-[View Live Demo](https://xhanafix.github.io/tiktok-script-generator)
+[View Live Demo](https://xhanafix.github.io/ttscript/)
 
 ## Prerequisites
 
@@ -58,12 +58,12 @@ To use this application, you'll need:
 
 1. Clone the repository:
 ```
-git clone https://github.com/xhanafix/tiktok-script-generator.git
+git clone https://github.com/xhanafix/ttscript.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd tiktok-script-generator
+cd ttscript
 ```
 
 3. Open `index.html` in your web browser
