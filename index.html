@@ -1,77 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TikTok Script Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch">
-            <input type="checkbox" id="themeToggle">
-            <div class="slider round"></div>
-        </label>
-        <em>Dark Mode</em>
-    </div>
-
+<body class="light-theme">
     <div class="container">
-        <h1>TikTok Script Generator</h1>
-        
-        <div id="apiKeySection" class="input-group">
-            <label for="apiKey">OpenRouter API Key</label>
-            <div class="api-input-group">
-                <input type="password" id="apiKey" placeholder="Enter your OpenRouter API key">
-                <button id="saveApiKey">Save Key</button>
+        <header>
+            <h1>TikTok Script Generator</h1>
+            <div class="header-controls">
+                <select id="language" class="language-select">
+                    <option value="en">English</option>
+                    <option value="ms">Bahasa Malaysia</option>
+                </select>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <small>Your API key is stored locally in your browser.</small>
-        </div>
-        
-        <div class="input-group">
-            <label for="description">Video Description</label>
-            <textarea id="description" rows="3" placeholder="Enter a brief description of your video concept"></textarea>
-        </div>
+        </header>
 
-        <div class="input-group">
-            <label for="audience">Target Audience</label>
-            <input type="text" id="audience" placeholder="e.g., Gen Z, Millennials, Tech enthusiasts">
-        </div>
-
-        <div class="input-group">
-            <label for="language">Language</label>
-            <select id="language">
-                <option value="english">English</option>
-                <option value="malay">Bahasa Malaysia</option>
-            </select>
-        </div>
-
-        <div class="input-group">
-            <label for="tone">Tone</label>
-            <select id="tone">
-                <option value="casual">Casual</option>
-                <option value="humorous">Humorous</option>
-                <option value="educational">Educational</option>
-                <option value="dramatic">Dramatic</option>
-                <option value="inspirational">Inspirational</option>
-            </select>
-        </div>
-
-        <button id="generateBtn" onclick="generateScript()">Generate Script</button>
-        
-        <div id="progressContainer" class="progress-container" style="display: none;">
-            <div class="progress-bar">
-                <div class="progress" id="progressBar"></div>
+        <div class="api-key-section" id="apiKeySection">
+            <h2>Enter Your OpenRouter API Key</h2>
+            <div class="input-group">
+                <input type="password" id="apiKey" placeholder="Enter your API key">
+                <button id="saveApiKey">Save API Key</button>
             </div>
-            <div class="progress-text" id="progressText">Generating your script... 🎬</div>
         </div>
-        
-        <div id="output"></div>
 
-        <footer class="footer">
-            <p>Made with <span class="heart">❤️</span> by <a href="https://github.com/xhanafix" target="_blank">xhanafix</a></p>
-        </footer>
+        <div class="generator-section" id="generatorSection">
+            <div class="input-group">
+                <label for="product">Product/Service:</label>
+                <input type="text" id="product" placeholder="Enter your product or service">
+            </div>
+            <div class="input-group">
+                <label for="audience">Target Audience:</label>
+                <input type="text" id="audience" placeholder="Enter your target audience">
+            </div>
+            <div class="input-group">
+                <label for="style">Video Style:</label>
+                <select id="style">
+                    <option value="storytelling">Storytelling</option>
+                    <option value="review">Product Review</option>
+                    <option value="skit">Comedy Skit</option>
+                    <option value="tutorial">Tutorial</option>
+                    <option value="testimonial">Testimonial</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="tone">Tone:</label>
+                <select id="tone">
+                    <option value="casual">Casual & Friendly</option>
+                    <option value="professional">Professional</option>
+                    <option value="humorous">Humorous</option>
+                    <option value="energetic">Energetic</option>
+                </select>
+            </div>
+            <button id="generate" class="generate-btn">Generate Script</button>
+        </div>
+
+        <div class="output-section">
+            <div class="loader" id="loader">
+                <div class="spinner"></div>
+                <div class="loading-text">
+                    <p id="loadingMessage">Generating your script...</p>
+                    <div class="loading-dots">
+                        <span>.</span><span>.</span><span>.</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-percentage" id="progressPercentage">0%</div>
+            </div>
+            <div class="output-container">
+                <div id="output" class="output-content"></div>
+                <div class="output-controls">
+                    <button id="copyBtn" class="action-btn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                    <button id="downloadBtn" class="action-btn">
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Embed Code Section -->
+        <div class="embed-section">
+            <h3>Embed This Generator</h3>
+            <div class="input-group">
+                <textarea id="embedCode" readonly class="embed-textarea" rows="3"></textarea>
+                <button id="copyEmbedBtn" class="action-btn">
+                    <i class="fas fa-copy"></i> Copy Embed Code
+                </button>
+            </div>
+        </div>
     </div>
 
+    <!-- Add Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 <a href="https://hanafihassan.com" target="_blank">hanafihassan.com</a>. All rights reserved.</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html> 
