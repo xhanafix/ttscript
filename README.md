@@ -1,200 +1,107 @@
-# TikTok Script Generator
+# TikTok Viral Idea Generator
 
-A web-based tool that generates optimized TikTok scripts using AI. Built with HTML, CSS, and JavaScript, this application leverages the OpenRouter API to create engaging, platform-specific content in both English and Bahasa Malaysia.
+A tool that helps content creators generate viral TikTok ideas quickly and easily using AI.
 
 ## Features
 
-- 🎬 Generates structured TikTok scripts with:
-  - Attention-grabbing hooks (first 3 seconds)
-  - Value-driven main content
-  - Engaging call-to-action
-  - Visual transition suggestions
-  - Timing cues
-  - Trending sound recommendations
-  - Hashtag suggestions
+- **AI-Powered Content Generation**: Uses Google Gemini 2.0 Flash model via OpenRouter
+- **Multilingual Support**: Switch between English and Bahasa Malaysia languages
+- **Copy Functionality**: Copy individual sections or all content with a single click
+- **History Management**: View, load, and manage previously generated ideas
+- **Export/Import**: Save and share your history of generated ideas as JSON files
+- **Responsive Design**: Works on desktop and mobile devices
 
-- 🌐 Language Support:
-  - English
-  - Bahasa Malaysia
+## Tech Stack
 
-- 🎭 Multiple Tone Options:
-  - Casual
-  - Humorous
-  - Educational
-  - Dramatic
-  - Inspirational
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- LocalStorage for persistent storage
+- OpenRouter API for AI content generation
 
-- 💡 Smart Features:
-  - Dark/Light theme support
-  - Responsive design
-  - Local storage for API key
-  - Real-time generation progress
-  - One-click copy functionality
-  - Mobile-optimized interface
+## API Requirements
 
-## Live Demo
+To use this application, you need:
+- An OpenRouter API key (sign up at [openrouter.ai](https://openrouter.ai))
+- The application uses the Google Gemini 2.0 Flash model
 
-[View Live Demo](https://xhanafix.github.io/ttscript/)
+## How to Use
 
-## Prerequisites
+1. Enter your OpenRouter API key
+2. Select your preferred language (English or Bahasa Malaysia)
+3. Enter a topic for your TikTok video (e.g., "Morning Coffee Routine", "Travel Hacks")
+4. Click "Generate Viral Idea"
+5. Use the copy buttons to copy individual sections or the entire script
+6. Access your history of previously generated ideas below
+7. Export or import history as needed
 
-To use this application, you'll need:
+## History Features
 
-1. An OpenRouter API key (get it from [OpenRouter](https://openrouter.ai/))
-2. A modern web browser
-3. Internet connection
+The app stores up to 50 previously generated ideas with:
 
-## Getting Started
+- Timestamp
+- Topic
+- Generated content
+- Language used
 
-### Getting Your OpenRouter API Key
+You can:
+- Load previous ideas back into the generator
+- Copy previous ideas to clipboard
+- Export your history as a JSON file
+- Import history from a JSON file
+- Clear your history (with confirmation)
 
-1. Visit [OpenRouter](https://openrouter.ai/)
-2. Create an account or sign in
-3. Navigate to your dashboard
-4. Generate a new API key
-5. Copy the API key for use in the application
+## File Structure
 
-### Installation
+This project is designed with a flat file structure for easy GitHub Pages hosting:
 
-1. Clone the repository:
 ```
-git clone https://github.com/xhanafix/ttscript.git
-```
-
-2. Navigate to the project directory:
-```bash
-cd ttscript
+ttviral/
+├── index.html     # Main HTML file
+├── styles.css     # CSS styles
+├── script.js      # JavaScript functionality
+└── README.md      # Project documentation
 ```
 
-3. Open `index.html` in your web browser
+## GitHub Pages Hosting
 
-### First-Time Setup
+To host this project on GitHub Pages:
 
-1. When you first open the application:
-   - Enter your OpenRouter API key in the provided field
-   - Click "Save Key" to store it securely
-   - The key will be saved locally in your browser
+1. Create a new GitHub repository
+2. Upload all files (index.html, styles.css, script.js, README.md)
+3. Go to repository Settings > Pages
+4. Select the main branch as the source
+5. Your site will be published at https://yourusername.github.io/repositoryname/
 
-2. Choose your preferred theme:
-   - Click the theme toggle in the top-right corner
-   - The app will remember your preference
+## Development
 
-## Using the Generator
+This project uses vanilla JavaScript without any external dependencies. All data is stored locally in the user's browser using localStorage. The content is generated using the OpenRouter API service.
 
-### Basic Usage
+### Key Code Components
 
-1. Enter Video Details:
-   - Write a clear description of your video concept
-   - Specify your target audience
-   - Select your preferred language
-   - Choose the appropriate tone
+- OpenRouter API integration with Google Gemini 2.0 Flash model
+- Language-aware AI prompting
+- Structured content parsing from AI responses
+- Copy-to-clipboard functionality
+- Local storage for history and API key
+- Import/Export functionality
+- Mobile-responsive design
 
-2. Generate Script:
-   - Click "Generate Script"
-   - Wait for the AI to create your content
-   - Progress bar will show generation status
+## Privacy & Security
 
-3. Review and Copy:
-   - Review the generated script sections
-   - Use the copy button to copy the full script
-   - Each section is clearly labeled for easy use
+- Your OpenRouter API key is stored locally in your browser
+- No data is sent to any server except the OpenRouter API
+- You can clear all stored data at any time
 
-### Advanced Tips
+## Future Enhancements
 
-1. For Better Results:
-   - Be specific in your video description
-   - Include target audience demographics
-   - Specify any particular trends you want to follow
-   - Mention specific hashtags or sounds if needed
-
-2. Language Selection:
-   - Choose English for international content
-   - Select Bahasa Malaysia for local content
-   - Language affects tone and cultural references
-
-3. Tone Selection:
-   - Casual: For relatable, everyday content
-   - Humorous: For entertaining, funny content
-   - Educational: For tutorials and informative content
-   - Dramatic: For storytelling and emotional content
-   - Inspirational: For motivational content
-
-## Script Structure
-
-Each generated script includes:
-
-### Hook Section
-- Attention-grabbing opening (3 seconds)
-- Pattern interrupts
-- Curiosity gaps
-- Viewer retention techniques
-
-### Main Content
-- Value-driven content
-- Visual transition cues
-- Mobile viewing optimization
-- Trending elements integration
-
-### Call-to-Action
-- Engagement prompts
-- Relevant hashtags
-- Follow/share requests
-- Platform-specific optimization
-
-## Technical Details
-
-- **API**: OpenRouter AI
-- **Model**: google/learnlm-1.5-pro-experimental:free
-- **Frontend**: Vanilla JavaScript, CSS3, HTML5
-- **Storage**: Local Storage for settings
-- **Theme**: Dynamic dark/light mode
-
-## Troubleshooting
-
-Common issues and solutions:
-
-1. API Key Issues:
-   - Ensure key is entered correctly
-   - Check if key has sufficient credits
-   - Try clearing browser cache and re-entering
-
-2. Generation Fails:
-   - Check internet connection
-   - Verify API key is valid
-   - Ensure all required fields are filled
-
-3. Copy Function Doesn't Work:
-   - Grant clipboard permissions
-   - Try using keyboard shortcuts (Ctrl/Cmd + C)
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Add more languages
+- Allow editing of generated content
+- Share directly to social media platforms
+- Categorize ideas by topic or type
+- Add user accounts for cross-device history
+- Support for more AI models
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-For support:
-- Open an issue in the GitHub repository
-- Contact through GitHub [@xhanafix](https://github.com/xhanafix)
-
-## Author
-
-- GitHub: [@xhanafix](https://github.com/xhanafix)
-
-## Acknowledgments
-
-- OpenRouter API for providing the AI capabilities
-- TikTok Creator Community for inspiration
-- Contributors and testers
-
----
-
-Made with ❤️ by [xhanafix](https://github.com/xhanafix)
+This project is available for personal and commercial use. 

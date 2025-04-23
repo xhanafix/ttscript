@@ -3,107 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TikTok Script Generator</title>
+    <title>TikTok Viral Idea Generator</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
-<body class="light-theme">
+<body>
     <div class="container">
         <header>
-            <h1>TikTok Script Generator</h1>
-            <div class="header-controls">
-                <select id="language" class="language-select">
-                    <option value="en">English</option>
-                    <option value="ms">Bahasa Malaysia</option>
-                </select>
-                <button id="themeToggle" class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
+            <h1>TikTok Viral Idea Generator</h1>
+            <p>Generate viral content ideas for your next TikTok video!</p>
         </header>
-
-        <div class="api-key-section" id="apiKeySection">
-            <h2>Enter Your OpenRouter API Key</h2>
-            <div class="input-group">
-                <input type="password" id="apiKey" placeholder="Enter your API key">
-                <button id="saveApiKey">Save API Key</button>
-            </div>
-        </div>
-
-        <div class="generator-section" id="generatorSection">
-            <div class="input-group">
-                <label for="product">Product/Service:</label>
-                <input type="text" id="product" placeholder="Enter your product or service">
-            </div>
-            <div class="input-group">
-                <label for="audience">Target Audience:</label>
-                <input type="text" id="audience" placeholder="Enter your target audience">
-            </div>
-            <div class="input-group">
-                <label for="style">Video Style:</label>
-                <select id="style">
-                    <option value="storytelling">Storytelling</option>
-                    <option value="review">Product Review</option>
-                    <option value="skit">Comedy Skit</option>
-                    <option value="tutorial">Tutorial</option>
-                    <option value="testimonial">Testimonial</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <label for="tone">Tone:</label>
-                <select id="tone">
-                    <option value="casual">Casual & Friendly</option>
-                    <option value="professional">Professional</option>
-                    <option value="humorous">Humorous</option>
-                    <option value="energetic">Energetic</option>
-                </select>
-            </div>
-            <button id="generate" class="generate-btn">Generate Script</button>
-        </div>
-
-        <div class="output-section">
-            <div class="loader" id="loader">
-                <div class="spinner"></div>
-                <div class="loading-text">
-                    <p id="loadingMessage">Generating your script...</p>
-                    <div class="loading-dots">
-                        <span>.</span><span>.</span><span>.</span>
+        
+        <main>
+            <div class="input-section">
+                <div class="language-selector">
+                    <label for="languageSelect">Language:</label>
+                    <select id="languageSelect">
+                        <option value="EN">English</option>
+                        <option value="MS">Bahasa Malaysia</option>
+                    </select>
+                </div>
+                
+                <div class="topic-input">
+                    <label for="topicInput">Topic:</label>
+                    <input type="text" id="topicInput" placeholder="e.g., Morning Coffee Routine, Travel Hacks, etc.">
+                </div>
+                
+                <div class="api-key-input">
+                    <label for="apiKeyInput">OpenRouter API Key:</label>
+                    <div class="api-key-container">
+                        <input type="password" id="apiKeyInput" placeholder="Enter your OpenRouter API key">
+                        <button id="toggleApiKeyBtn" class="toggle-btn">
+                            <span class="material-icons">visibility</span>
+                        </button>
+                    </div>
+                    <div class="api-key-hint">
+                        <span class="material-icons info-icon">info</span>
+                        <span>Using Google Gemini 2.0 Flash model</span>
                     </div>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <div class="progress-percentage" id="progressPercentage">0%</div>
-            </div>
-            <div class="output-container">
-                <div id="output" class="output-content"></div>
-                <div class="output-controls">
-                    <button id="copyBtn" class="action-btn">
-                        <i class="fas fa-copy"></i> Copy
-                    </button>
-                    <button id="downloadBtn" class="action-btn">
-                        <i class="fas fa-download"></i> Download
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add Embed Code Section -->
-        <div class="embed-section">
-            <h3>Embed This Generator</h3>
-            <div class="input-group">
-                <textarea id="embedCode" readonly class="embed-textarea" rows="3"></textarea>
-                <button id="copyEmbedBtn" class="action-btn">
-                    <i class="fas fa-copy"></i> Copy Embed Code
+                
+                <button id="generateBtn" class="primary-btn">
+                    <span class="material-icons">auto_awesome</span> Generate Viral Idea
                 </button>
+            </div>
+            
+            <div id="loadingSpinner" class="loading-spinner hidden">
+                <div class="spinner"></div>
+                <p>Generating ideas...</p>
+            </div>
+            
+            <div id="resultContainer" class="result-container hidden">
+                <h2>Your TikTok Viral Idea <span id="languageBadge" class="language-badge">EN</span></h2>
+                
+                <div class="result-section">
+                    <div class="section-header">
+                        <h3>Hook (0-3s)</h3>
+                        <button class="copy-btn" data-target="hookContent">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                    <p id="hookContent" class="result-content"></p>
+                </div>
+                
+                <div class="result-section">
+                    <div class="section-header">
+                        <h3>Introduction (3-10s)</h3>
+                        <button class="copy-btn" data-target="introContent">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                    <p id="introContent" class="result-content"></p>
+                </div>
+                
+                <div class="result-section">
+                    <div class="section-header">
+                        <h3>Main Content (10-50s)</h3>
+                        <button class="copy-btn" data-target="mainContent">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                    <p id="mainContent" class="result-content"></p>
+                </div>
+                
+                <div class="result-section">
+                    <div class="section-header">
+                        <h3>Call-to-Action (50-60s)</h3>
+                        <button class="copy-btn" data-target="ctaContent">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                    <p id="ctaContent" class="result-content"></p>
+                </div>
+                
+                <div class="result-section">
+                    <div class="section-header">
+                        <h3>Hashtags</h3>
+                        <button class="copy-btn" data-target="hashtagsContent">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                    <p id="hashtagsContent" class="result-content"></p>
+                </div>
+                
+                <button id="copyAllBtn" class="secondary-btn">
+                    <span class="material-icons">content_copy</span> Copy All
+                </button>
+            </div>
+            
+            <div class="history-section">
+                <div class="history-header">
+                    <h3><span class="material-icons">history</span> Generation History</h3>
+                    <div class="history-controls">
+                        <button id="exportHistoryBtn" class="history-btn">
+                            <span class="material-icons">file_download</span> Export
+                        </button>
+                        <label for="importHistoryInput" id="importHistoryBtn" class="history-btn">
+                            <span class="material-icons">file_upload</span> Import
+                        </label>
+                        <input type="file" id="importHistoryInput" accept=".json" class="hidden">
+                        <button id="clearHistoryBtn" class="history-btn danger">
+                            <span class="material-icons">delete</span> Clear
+                        </button>
+                    </div>
+                </div>
+                <div id="historyList" class="history-list">
+                    <!-- History items will be populated here dynamically -->
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2023 TikTok Viral Idea Generator | Built with HTML, CSS, JavaScript</p>
+        </footer>
+    </div>
+    
+    <!-- Confirmation Dialog -->
+    <div id="confirmDialog" class="dialog-overlay hidden">
+        <div class="dialog-content">
+            <h3>Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to continue?</p>
+            <div class="dialog-buttons">
+                <button id="cancelBtn" class="secondary-btn">Cancel</button>
+                <button id="confirmBtn" class="primary-btn danger">Confirm</button>
             </div>
         </div>
     </div>
-
-    <!-- Add Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 <a href="https://hanafihassan.com" target="_blank">hanafihassan.com</a>. All rights reserved.</p>
-    </footer>
+    
+    <!-- Toast Notification -->
+    <div id="toastNotification" class="toast-notification hidden">
+        <span id="toastMessage"></span>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html> 
